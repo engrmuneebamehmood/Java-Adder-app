@@ -1,0 +1,117 @@
+package ADDER;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import javax.swing.text.JTextComponent;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class ADDER extends JFrame {
+
+	private JFrame frmMuneebaMehmoodAdder;
+	private JTextField tfNumber1, tfNumber2, tfResult;
+	private JButton btnAdd, btnClear;
+	private int number1, number2, result;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ADDER window = new ADDER();
+					window.frmMuneebaMehmoodAdder.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public ADDER() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmMuneebaMehmoodAdder = new JFrame();
+		frmMuneebaMehmoodAdder.setTitle("MUNEEBA MEHMOOD ADDER");
+		frmMuneebaMehmoodAdder.setBounds(100, 100, 450, 300);
+		frmMuneebaMehmoodAdder.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmMuneebaMehmoodAdder.getContentPane().setLayout(null);
+		
+		tfNumber1 = new JTextField();
+		tfNumber1.setBounds(239, 31, 86, 20);
+		frmMuneebaMehmoodAdder.getContentPane().add(tfNumber1);
+		tfNumber1.setColumns(10);
+		
+		tfNumber2 = new JTextField();
+		tfNumber2.setBounds(236, 74, 86, 20);
+		frmMuneebaMehmoodAdder.getContentPane().add(tfNumber2);
+		tfNumber2.setColumns(10);
+		
+		tfResult = new JTextField();
+		tfResult.setBounds(236, 120, 86, 20);
+		frmMuneebaMehmoodAdder.getContentPane().add(tfResult);
+		tfResult.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("First number");
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNewLabel.setBounds(31, 34, 94, 14);
+		frmMuneebaMehmoodAdder.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Second number");
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNewLabel_1.setBounds(31, 74, 84, 20);
+		frmMuneebaMehmoodAdder.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Result");
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNewLabel_2.setBounds(31, 120, 74, 17);
+		frmMuneebaMehmoodAdder.getContentPane().add(lblNewLabel_2);
+		
+		JButton btnNewButton = new JButton("ADD");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				number1 = Integer.parseInt(tfNumber1.getText());
+				number2 = Integer.parseInt(tfNumber2.getText());
+				result=number1+number2;
+		
+				tfResult.setText(Integer.toString(result));
+			}
+		});
+		btnNewButton.setBounds(60, 198, 89, 23);
+		frmMuneebaMehmoodAdder.getContentPane().add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("CLEAR");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent e) {
+				
+				tfNumber1.setText("");
+tfNumber2.setText("");
+tfResult.setText("");
+
+				
+			}
+			
+			
+			
+		});
+		btnNewButton_1.setBounds(236, 198, 89, 23);
+		frmMuneebaMehmoodAdder.getContentPane().add(btnNewButton_1);
+	}
+
+}
